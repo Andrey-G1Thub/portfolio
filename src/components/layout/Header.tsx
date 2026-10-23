@@ -1,4 +1,5 @@
 import { useNavigate, useParams, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Link from '../ui/Link'
 import Button from '../ui/Button'
 import { translations } from '../../i18n/translations'
@@ -11,6 +12,37 @@ function Header() {
   const currentLanguage = lang === 'en' ? 'en' : 'ru'
   const t = translations[currentLanguage]
   const nextLanguage = currentLanguage === 'ru' ? 'en' : 'ru'
+
+  useEffect(() => {
+    if (!location.pathname.match(/^\/(ru|en)$/)) {
+      return
+    }
+
+    const sectionId = location.state?.scrollToSection as string | undefined
+
+    if (!sectionId) {
+      return
+    }
+
+    const section = document.getElementById(sectionId)
+
+    section?.scrollIntoView({ behavior: 'smooth' })
+
+    navigate(location.pathname, {
+      replace: true,
+      state: null,
+    })
+  }, [location.pathname, location.state, navigate])
+
+  const navigateToSection = (sectionId: string) => {
+    if (location.pathname === `/${currentLanguage}`) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate(`/${currentLanguage}`, {
+        state: { scrollToSection: sectionId },
+      })
+    }
+  }
 
   const switchLanguage = () => {
     const currentPath = location.pathname.replace(/^\/(ru|en)/, '')
@@ -36,7 +68,7 @@ function Header() {
             variant="muted"
             onClick={(event) => {
               event.preventDefault()
-              navigate(`/${currentLanguage}#projects`)
+              navigateToSection('projects')
             }}
           >
             {t.navigation.projects}
@@ -47,7 +79,7 @@ function Header() {
             variant="muted"
             onClick={(event) => {
               event.preventDefault()
-              navigate(`/${currentLanguage}#about`)
+              navigateToSection('about')
             }}
           >
             {t.navigation.about}
@@ -58,7 +90,7 @@ function Header() {
             variant="muted"
             onClick={(event) => {
               event.preventDefault()
-              navigate(`/${currentLanguage}#contact`)
+              navigateToSection('contact')
             }}
           >
             {t.navigation.contact}
@@ -88,7 +120,7 @@ function Header() {
 
           <Button
             className="shrink-0 px-4 py-2"
-            onClick={() => navigate(`/${currentLanguage}#contact`)}
+            onClick={() => navigateToSection('contact')}
           >
             {t.header.contactButton}
           </Button>

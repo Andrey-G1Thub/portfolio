@@ -179,7 +179,7 @@ export const translations: Record<Language, Translations> = {
         contribution: {
           title: 'Мой вклад',
           description:
-            'Участвовал в командной разработке учебного проекта. Работа помогла получить практический опыт взаимодействия с общим кодом и Git. Не приписываю себе функции, авторство которых не подтверждено.',
+            'Участвовал в командной разработке учебного проекта. Работа помогла получить практический опыт взаимодействия с общим кодом и Git.',
         },
         technologies: {
           title: 'Технологии',
@@ -376,7 +376,7 @@ export const translations: Record<Language, Translations> = {
         contribution: {
           title: 'My Contribution',
           description:
-            'Contributed to a team learning project and gained practical experience working with a shared codebase and Git. I do not claim ownership of features that have not been confirmed as my work.',
+            'Contributed to a team learning project and gained practical experience working with a shared codebase and Git. ',
         },
         technologies: {
           title: 'Technologies',
