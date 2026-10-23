@@ -88,6 +88,25 @@ export interface Translations {
     {
       title: string
       description: string
+      overview: string
+      features: {
+        title: string
+        items: string[]
+      }
+      contribution: {
+        title: string
+        description: string
+      }
+      technologies: {
+        title: string
+        items: string[]
+      }
+      gallery: {
+        title: string
+        alt: string
+      }
+      demoStatus: string
+      nextProject: string
     }
   >
 

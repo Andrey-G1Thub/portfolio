@@ -94,19 +94,103 @@ export const translations: Record<Language, Translations> = {
       bookez: {
         title: 'BookEz',
         description:
-          'Дипломный Fullstack-проект — приложение для бронирования отелей с системой ролей, JWT-авторизацией, поиском и фильтрацией. Включает React, TypeScript, Node.js, Express, MongoDB и Docker.',
+          'Дипломный Fullstack-проект — приложение для бронирования отелей с поиском, фильтрацией, JWT-авторизацией и системой ролей.',
+        overview:
+          'Веб-приложение для поиска и бронирования отелей. Проект объединяет клиентскую часть, серверную логику и работу с базой данных.',
+        features: {
+          title: 'Основные возможности',
+          items: [
+            'Поиск и фильтрация отелей',
+            'Регистрация и авторизация с JWT',
+            'Разграничение доступа по ролям',
+            'Серверная обработка запросов и работа с MongoDB',
+          ],
+        },
+        contribution: {
+          title: 'Мой вклад',
+          description:
+            'Дипломный проект, над которым я работал в рамках обучения Fullstack-разработке. Реализовывал и изучал взаимодействие клиентской и серверной частей приложения.',
+        },
+        technologies: {
+          title: 'Технологии',
+          items: [
+            'React',
+            'TypeScript',
+            'Node.js',
+            'Express',
+            'MongoDB',
+            'Docker',
+          ],
+        },
+        gallery: {
+          title: 'Скриншоты проекта',
+          alt: 'Скриншот приложения BookEz',
+        },
+        demoStatus:
+          'Публичное демо временно недоступно. Проект можно изучить в репозитории.',
+        nextProject: 'HaKatonReact',
       },
 
       'hakaton-react': {
         title: 'HaKatonReact',
         description:
-          'Проект React-хакатона: интерфейс с динамическими карточками сотрудников, лайками и фильтрацией данных. Мой вклад включал разработку карточек, лайков и фильтрации по заданию.',
+          'Проект React-хакатона с карточками сотрудников, лайками и фильтрацией данных.',
+        overview:
+          'Практический командный проект, созданный в рамках задания на React. Интерфейс позволяет работать с карточками и фильтровать отображаемые данные.',
+        features: {
+          title: 'Основные возможности',
+          items: [
+            'Отображение карточек',
+            'Добавление и снятие лайков',
+            'Фильтрация данных',
+            'Интерактивное взаимодействие с интерфейсом',
+          ],
+        },
+        contribution: {
+          title: 'Мой вклад',
+          description:
+            'С помощью AI-инструментов я реализовал компоненты карточек, логику лайков и фильтрацию в соответствии с требованиями задания.',
+        },
+        technologies: {
+          title: 'Технологии',
+          items: ['React', 'JavaScript', 'CSS'],
+        },
+        gallery: {
+          title: 'Скриншоты проекта',
+          alt: 'Скриншот React-проекта HaKatonReact',
+        },
+        demoStatus: 'Демо доступно онлайн.',
+        nextProject: 'Context Menu',
       },
 
       'context-menu': {
         title: 'Context Menu',
         description:
-          'Командный JavaScript-проект с кастомным контекстным меню и интерактивными элементами. Работа над проектом включала практику взаимодействия с кодом команды и Git.',
+          'Командный JavaScript-проект с контекстным меню и интерактивными элементами.',
+        overview:
+          'Учебный командный проект, посвящённый созданию интерактивных элементов интерфейса на JavaScript.',
+        features: {
+          title: 'Основные возможности',
+          items: [
+            'Пользовательское контекстное меню',
+            'Интерактивные элементы интерфейса',
+          ],
+        },
+        contribution: {
+          title: 'Мой вклад',
+          description:
+            'Участвовал в командной разработке учебного проекта. Работа помогла получить практический опыт взаимодействия с общим кодом и Git. Не приписываю себе функции, авторство которых не подтверждено.',
+        },
+        technologies: {
+          title: 'Технологии',
+          items: ['JavaScript', 'HTML', 'CSS'],
+        },
+        gallery: {
+          title: 'Скриншоты проекта',
+          alt: 'Скриншот проекта Context Menu',
+        },
+        demoStatus: 'Демо доступно онлайн.',
+        nextProject: 'BookEz',
       },
     },
 
@@ -210,19 +294,100 @@ export const translations: Record<Language, Translations> = {
       bookez: {
         title: 'BookEz',
         description:
-          'A fullstack diploma project: a hotel booking application with role-based access, JWT authentication, search, and filtering. Built with React, TypeScript, Node.js, Express, MongoDB, and Docker.',
+          'A fullstack diploma project — a hotel booking application with search, filtering, JWT authentication, and role-based access.',
+        overview:
+          'A web application for searching and booking hotels. The project combines a client-side interface, server-side logic, and database operations.',
+        features: {
+          title: 'Key Features',
+          items: [
+            'Hotel search and filtering',
+            'Registration and JWT authentication',
+            'Role-based access control',
+            'Server-side request handling and MongoDB integration',
+          ],
+        },
+        contribution: {
+          title: 'My Contribution',
+          description:
+            'A diploma project developed during my Fullstack training. I worked on and studied the interaction between the client-side and server-side parts of the application.',
+        },
+        technologies: {
+          title: 'Technologies',
+          items: [
+            'React',
+            'TypeScript',
+            'Node.js',
+            'Express',
+            'MongoDB',
+            'Docker',
+          ],
+        },
+        gallery: {
+          title: 'Project Screenshots',
+          alt: 'BookEz application screenshot',
+        },
+        demoStatus:
+          'The public demo is currently unavailable. You can explore the source code in the repository.',
+        nextProject: 'HaKatonReact',
       },
 
       'hakaton-react': {
         title: 'HaKatonReact',
         description:
-          'A React hackathon project featuring dynamic employee cards, likes, and data filtering. My assigned work included implementing the cards, likes, and filtering.',
+          'A React hackathon project featuring employee cards, likes, and data filtering.',
+        overview:
+          'A team project built as part of a React assignment. The interface allows users to interact with cards and filter displayed data.',
+        features: {
+          title: 'Key Features',
+          items: [
+            'Card-based interface',
+            'Like and unlike interactions',
+            'Data filtering',
+            'Interactive UI elements',
+          ],
+        },
+        contribution: {
+          title: 'My Contribution',
+          description:
+            'With the help of AI tools, I implemented the card components, like functionality, and filtering according to the assignment requirements.',
+        },
+        technologies: {
+          title: 'Technologies',
+          items: ['React', 'JavaScript', 'CSS'],
+        },
+        gallery: {
+          title: 'Project Screenshots',
+          alt: 'HaKatonReact project screenshot',
+        },
+        demoStatus: 'A live demo is available.',
+        nextProject: 'Context Menu',
       },
 
       'context-menu': {
         title: 'Context Menu',
         description:
-          'A collaborative JavaScript project featuring a custom context menu and interactive elements. The project provided practice working with a team codebase and Git.',
+          'A collaborative JavaScript project featuring a custom context menu and interactive elements.',
+        overview:
+          'A team learning project focused on building interactive interface elements with JavaScript.',
+        features: {
+          title: 'Key Features',
+          items: ['Custom context menu', 'Interactive UI elements'],
+        },
+        contribution: {
+          title: 'My Contribution',
+          description:
+            'Contributed to a team learning project and gained practical experience working with a shared codebase and Git. I do not claim ownership of features that have not been confirmed as my work.',
+        },
+        technologies: {
+          title: 'Technologies',
+          items: ['JavaScript', 'HTML', 'CSS'],
+        },
+        gallery: {
+          title: 'Project Screenshots',
+          alt: 'Context Menu project screenshot',
+        },
+        demoStatus: 'A live demo is available.',
+        nextProject: 'BookEz',
       },
     },
 
