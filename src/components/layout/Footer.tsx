@@ -1,6 +1,12 @@
 import Link from '../ui/Link'
+import { useParams } from 'react-router-dom'
+import { translations } from '../../i18n/translations'
 
 function Footer() {
+  const { lang } = useParams()
+  const currentLanguage = lang === 'en' ? 'en' : 'ru'
+  const t = translations[currentLanguage]
+
   return (
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-content flex-col gap-4 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6">
@@ -19,7 +25,7 @@ function Footer() {
           </Link>
 
           <Link href="#contact" variant="muted">
-            Контакты
+            {t.footer.contact}
           </Link>
         </div>
       </div>
