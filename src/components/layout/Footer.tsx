@@ -1,9 +1,10 @@
 import Link from '../ui/Link'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { translations } from '../../i18n/translations'
 
 function Footer() {
   const { lang } = useParams()
+  const navigate = useNavigate()
   const currentLanguage = lang === 'en' ? 'en' : 'ru'
   const t = translations[currentLanguage]
 
@@ -24,7 +25,14 @@ function Footer() {
             GitHub
           </Link>
 
-          <Link href="#contact" variant="muted">
+          <Link
+            href={`/${currentLanguage}#contact`}
+            variant="muted"
+            onClick={(event) => {
+              event.preventDefault()
+              navigate(`/${currentLanguage}#contact`)
+            }}
+          >
             {t.footer.contact}
           </Link>
         </div>
