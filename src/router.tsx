@@ -31,43 +31,6 @@ const projects: Record<
   },
 }
 
-// const projects: Record<
-//   ProjectId,
-//   {
-//     title: string
-//     description: Record<Language, string>
-//     repository: string
-//     demo?: string
-//   }
-// > = {
-//   bookez: {
-//     title: 'BookEz',
-//     description: {
-//       ru: 'Дипломный проект — приложение для бронирования отелей.',
-//       en: 'Diploma project — a hotel booking application.',
-//     },
-//     repository: 'https://github.com/Andrey-G1Thub/bookez-hotel-booking',
-//   },
-//   'hakaton-react': {
-//     title: 'HaKatonReact',
-//     description: {
-//       ru: 'Приложение с карточками, лайками и фильтрацией.',
-//       en: 'An application featuring cards, likes and filtering.',
-//     },
-//     repository: 'https://github.com/Andrey-G1Thub/HaKatonReact',
-//     demo: 'https://andrey-g1thub.github.io/HaKatonReact/',
-//   },
-//   'context-menu': {
-//     title: 'Context Menu',
-//     description: {
-//       ru: 'Проект с контекстным меню и интерактивными элементами.',
-//       en: 'A project featuring a context menu and interactive elements.',
-//     },
-//     repository: 'https://github.com/Artemsushko/context-menu',
-//     demo: 'https://artemsushko.github.io/context-menu/',
-//   },
-// }
-
 function LanguageGuard() {
   const { lang } = useParams()
 
