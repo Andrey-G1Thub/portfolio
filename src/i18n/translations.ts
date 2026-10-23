@@ -40,20 +40,35 @@ export const translations: Record<Language, Translations> = {
       about: {
         title: 'Обо мне',
         description:
-          'Junior-разработчик, который развивает навыки создания современных веб-интерфейсов.',
+          'Junior Frontend-разработчик, развивающий навыки создания современных веб-интерфейсов.',
+        education: 'Обучение',
+        educationDescription:
+          'Завершил курс Frontend-разработчика и продолжаю закреплять знания на практике.',
+        independentWork:
+          'Самостоятельно изучаю технологии, решаю учебные задачи и развиваю собственные проекты.',
       },
 
       stack: {
         title: 'Технологии',
+        groups: {
+          frontend: 'Frontend',
+          state: 'Управление состоянием',
+          backend: 'Backend',
+          tools: 'Инструменты',
+        },
       },
-
       journey: {
         title: 'Мой путь',
+        education:
+          'Завершил курс профессиональной переподготовки по Frontend-разработке',
+        educationPeriod: '19 мая 2025 — 15 апреля 2026',
+        current: 'Продолжаю обучение, практикуюсь и развиваю портфолио.',
       },
-
       certificates: {
         title: 'Сертификаты',
         viewCertificate: 'Посмотреть сертификат',
+        frontend: 'Курс Frontend-разработчика',
+        greenApi: 'Сертификат Green API',
       },
 
       contact: {
@@ -133,20 +148,37 @@ export const translations: Record<Language, Translations> = {
       about: {
         title: 'About me',
         description:
-          'A junior developer improving his skills in building modern web interfaces.',
+          'Junior Frontend Developer improving my skills in building modern web interfaces.',
+        education: 'Education',
+        educationDescription:
+          'Completed a Frontend Developer course and continue to strengthen my skills through practice.',
+        independentWork:
+          'I study technologies independently, solve practical assignments, and develop personal projects.',
       },
 
       stack: {
         title: 'Tech stack',
+        groups: {
+          frontend: 'Frontend',
+          state: 'State Management',
+          backend: 'Backend',
+          tools: 'Tools',
+        },
       },
 
       journey: {
         title: 'My journey',
+        education:
+          'Completed a professional retraining course in Frontend development',
+        educationPeriod: 'May 19, 2025 — April 15, 2026',
+        current: 'Continuing to learn, practice, and develop my portfolio.',
       },
 
       certificates: {
         title: 'Certificates',
         viewCertificate: 'View certificate',
+        frontend: 'Frontend Developer course',
+        greenApi: 'Green API certificate',
       },
 
       contact: {

@@ -28,6 +28,7 @@ export interface Translations {
       viewProjects: string
       contact: string
     }
+
     projects: {
       title: string
       description: string
@@ -35,20 +36,39 @@ export interface Translations {
       repository: string
       demo: string
     }
+
     about: {
       title: string
       description: string
+      education: string
+      educationDescription: string
+      independentWork: string
     }
+
     stack: {
       title: string
+      groups: {
+        frontend: string
+        state: string
+        backend: string
+        tools: string
+      }
     }
+
     journey: {
       title: string
+      education: string
+      educationPeriod: string
+      current: string
     }
+
     certificates: {
       title: string
       viewCertificate: string
+      frontend: string
+      greenApi: string
     }
+
     contact: {
       title: string
       description: string
