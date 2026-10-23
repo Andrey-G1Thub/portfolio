@@ -59,12 +59,14 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
       <main className="mx-auto max-w-content px-4 py-10 sm:px-6 sm:py-14">
         <Link
           to={`/${language}`}
+          state={{ scrollToSection: 'projects' }}
           className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-content"
         >
           <ArrowLeft size={16} aria-hidden="true" />
           {t.projectPage.backToHome}
         </Link>
 
+        {/* Portfolio / Project */}
         <section className="py-10 sm:py-14">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
             Portfolio / Project
@@ -186,6 +188,7 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
         >
           <Link
             to={`/${language}`}
+            state={{ scrollToSection: 'projects' }}
             className="text-sm text-text-secondary transition-colors hover:text-content"
           >
             {t.projectPage.backToHome}
