@@ -74,6 +74,9 @@ export interface Translations {
       description: string
       email: string
       github: string
+      copyEmail: string
+      emailCopied: string
+      emailCopyError: string
     }
   }
 

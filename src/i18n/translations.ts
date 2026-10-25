@@ -81,6 +81,9 @@ export const translations: Record<Language, Translations> = {
           'Открыт к предложениям о работе, профессиональному общению и новым задачам в веб-разработке.',
         email: 'Написать на почту',
         github: 'Мой GitHub',
+        copyEmail: 'Копировать email',
+        emailCopied: 'Email скопирован!',
+        emailCopyError: 'Не удалось скопировать email. Скопируй адрес вручную.',
       },
     },
 
@@ -281,6 +284,10 @@ export const translations: Record<Language, Translations> = {
           'Open to job opportunities, professional connections, and new challenges in web development.',
         email: 'Send an email',
         github: 'My GitHub',
+        copyEmail: 'Copy email',
+        emailCopied: 'Email copied!',
+        emailCopyError:
+          'Could not copy email. Please copy the address manually.',
       },
     },
 

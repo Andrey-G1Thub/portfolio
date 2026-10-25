@@ -10,6 +10,7 @@ import {
   Wrench,
   GraduationCap,
   BriefcaseBusiness,
+  Copy,
 } from 'lucide-react'
 
 import { useEffect, useState } from 'react'
@@ -36,6 +37,28 @@ function App() {
 
   const [selectedCertificate, setSelectedCertificate] =
     useState<Certificate | null>(null)
+  const [emailCopyStatus, setEmailCopyStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle')
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('andreyrukshenas@gmail.com')
+      setEmailCopyStatus('success')
+    } catch {
+      setEmailCopyStatus('error')
+    }
+  }
+
+  useEffect(() => {
+    if (emailCopyStatus === 'idle') return
+
+    const timeoutId = window.setTimeout(() => {
+      setEmailCopyStatus('idle')
+    }, 2500)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [emailCopyStatus])
 
   useEffect(() => {
     if (!selectedCertificate) return
@@ -444,7 +467,6 @@ function App() {
         </section>
 
         {/* модальное окно */}
-
         {selectedCertificate && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
@@ -482,35 +504,58 @@ function App() {
         {/* Contact */}
         <section id="contact" className="scroll-mt-8 py-16 sm:py-24">
           <Card className="border-accent/30 bg-surface p-6 sm:p-10">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              06 / Contact
-            </p>
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              {home.contact.title}
-            </h2>
-            <p className="mt-4 max-w-2xl leading-7 text-text-secondary">
-              {home.contact.description}
-            </p>
+            <div className="mt-8">
+              <p className="mb-4 break-all text-sm text-text-secondary">
+                andreyrukshenas@gmail.com
+              </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="mailto:andreyrukshenas@gmail.com"
-                className="inline-flex items-center gap-2 rounded-button bg-accent px-5 py-3 text-sm font-medium text-black transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-              >
-                <Mail size={18} aria-hidden="true" />
-                {home.contact.email}
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="mailto:andreyrukshenas@gmail.com"
+                  className="inline-flex items-center gap-2 rounded-button bg-accent px-5 py-3 text-sm font-medium text-black transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  <Mail size={18} aria-hidden="true" />
+                  {home.contact.email}
+                </a>
 
-              <a
-                href="https://github.com/Andrey-G1Thub"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-button border border-border bg-surface px-5 py-3 text-sm font-medium text-content transition-colors hover:bg-surface-secondary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  className="inline-flex items-center gap-2 rounded-button border border-border bg-surface px-5 py-3 text-sm font-medium text-content transition-colors hover:bg-surface-secondary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  <Copy size={18} aria-hidden="true" />
+                  {home.contact.copyEmail}
+                </button>
+
+                <a
+                  href="https://github.com/Andrey-G1Thub"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-button border border-border bg-surface px-5 py-3 text-sm font-medium text-content transition-colors hover:bg-surface-secondary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  <CodeXml size={18} aria-hidden="true" />
+                  {home.contact.github}
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              </div>
+
+              <p
+                className="mt-3 min-h-5 text-sm"
+                aria-live="polite"
+                role="status"
               >
-                <CodeXml size={18} aria-hidden="true" />
-                {home.contact.github}
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
+                {emailCopyStatus === 'success' && (
+                  <span className="text-accent">
+                    {home.contact.emailCopied}
+                  </span>
+                )}
+
+                {emailCopyStatus === 'error' && (
+                  <span className="text-red-400">
+                    {home.contact.emailCopyError}
+                  </span>
+                )}
+              </p>
             </div>
           </Card>
         </section>
