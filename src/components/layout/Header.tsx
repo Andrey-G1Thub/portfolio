@@ -53,8 +53,14 @@ function Header() {
     <header className="border-b border-border">
       <div className="mx-auto flex max-w-content items-center justify-between gap-3 px-4 py-5 sm:gap-6 sm:px-6">
         <Link
-          href={`/${currentLanguage}`}
+          href="#"
           className="shrink-0 text-base font-semibold tracking-wide"
+          onClick={(event) => {
+            event.preventDefault()
+            navigate({
+              pathname: `/${currentLanguage}`,
+            })
+          }}
         >
           ANDREY RUKSHENAS
         </Link>

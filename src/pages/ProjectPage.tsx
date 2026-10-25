@@ -7,20 +7,25 @@ import {
   ExternalLink,
 } from 'lucide-react'
 
-import Header from '../components/layout/Header'
+// import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
 import TechBadge from '../components/ui/TechBadge'
 import { translations } from '../i18n/translations'
 import type { Language, ProjectId } from '../i18n/types'
 
-import bookezImage from '../../avatar/book-ez.png'
+import bookezImage from '../../avatar/book-ez/book-ez.png'
+import bookezImage2 from '../../avatar/book-ez/book-ez2.png'
+import bookezImage3 from '../../avatar/book-ez/book-ez3.png'
+import bookezImage4 from '../../avatar/book-ez/book-ez4.png'
 import hakatonImage from '../../avatar/hakaton1.png'
+import hakatonImage2 from '../../avatar/hakaton2.png'
 import contextMenuImage from '../../avatar/context-api.png'
+import Header from '../components/layout/Header'
 
-const projectImages: Record<ProjectId, string> = {
-  bookez: bookezImage,
-  'hakaton-react': hakatonImage,
-  'context-menu': contextMenuImage,
+const projectImages: Record<ProjectId, string[]> = {
+  bookez: [bookezImage, bookezImage2, bookezImage3, bookezImage4],
+  'hakaton-react': [hakatonImage, hakatonImage2],
+  'context-menu': [contextMenuImage],
 }
 
 const projectLinks: Record<
@@ -49,7 +54,7 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
   const t = translations[language]
   const project = t.projects[projectId]
   const links = projectLinks[projectId]
-  const image = projectImages[projectId]
+  const images = projectImages[projectId]
   const nextProject = t.projects[links.next]
 
   return (
@@ -117,20 +122,30 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
             {project.gallery.title}
           </h2>
 
-          <div className="overflow-hidden rounded-card border border-border bg-surface">
-            <a
-              href={image}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={project.gallery.alt}
-              className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-            >
-              <img
-                src={image}
-                alt={project.gallery.alt}
-                className="max-h-[620px] w-full object-contain object-top"
-              />
-            </a>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {images.map((image, index) => (
+              <div
+                key={image}
+                className={`overflow-hidden rounded-card border border-border bg-surface ${
+                  images.length === 1 ? 'sm:col-span-2' : ''
+                }`}
+              >
+                <a
+                  href={image}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${project.gallery.alt} ${index + 1}`}
+                  className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  <img
+                    src={image}
+                    alt={`${project.gallery.alt} ${index + 1}`}
+                    className="max-h-[620px] w-full object-contain object-top"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+            ))}
           </div>
         </section>
 

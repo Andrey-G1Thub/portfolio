@@ -1,5 +1,5 @@
 import Link from '../ui/Link'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useLocation } from 'react-router-dom'
 import { translations } from '../../i18n/translations'
 
 function Footer() {
@@ -7,6 +7,18 @@ function Footer() {
   const navigate = useNavigate()
   const currentLanguage = lang === 'en' ? 'en' : 'ru'
   const t = translations[currentLanguage]
+
+  const location = useLocation()
+
+  const navigateToSection = (sectionId: string) => {
+    if (location.pathname === `/${currentLanguage}`) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate(`/${currentLanguage}`, {
+        state: { scrollToSection: sectionId },
+      })
+    }
+  }
 
   return (
     <footer className="border-t border-border">
@@ -30,7 +42,7 @@ function Footer() {
             variant="muted"
             onClick={(event) => {
               event.preventDefault()
-              navigate(`/${currentLanguage}#contact`)
+              navigateToSection('contact')
             }}
           >
             {t.footer.contact}

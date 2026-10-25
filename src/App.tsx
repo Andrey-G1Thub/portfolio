@@ -20,7 +20,7 @@ import Footer from './components/layout/Footer'
 import { translations } from './i18n/translations'
 
 import portrait from '../avatar/avatar.jpg'
-import bookezImage from '../avatar/book-ez.png'
+import bookezImage from '../avatar/book-ez/book-ez.png'
 import hakatonImage from '../avatar/hakaton1.png'
 import contextMenuImage from '../avatar/context-api.png'
 import frontendCertificate from '../avatar/sertificats/djunior-frontend.png'
