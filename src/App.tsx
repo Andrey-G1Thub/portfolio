@@ -12,6 +12,8 @@ import {
   BriefcaseBusiness,
 } from 'lucide-react'
 
+import { useEffect, useState } from 'react'
+
 import Button from './components/ui/Button'
 import TechBadge from './components/ui/TechBadge'
 import Card from './components/ui/Card'
@@ -31,6 +33,25 @@ function App() {
   const currentLanguage = lang === 'en' ? 'en' : 'ru'
   const t = translations[currentLanguage]
   const home = t.home
+
+  const [selectedCertificate, setSelectedCertificate] =
+    useState<Certificate | null>(null)
+
+  useEffect(() => {
+    if (!selectedCertificate) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedCertificate(null)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [selectedCertificate])
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
@@ -126,6 +147,8 @@ function App() {
           : 'Green API certificate',
     },
   ]
+
+  type Certificate = (typeof certificates)[number]
 
   return (
     <div className="min-h-screen bg-page text-content">
@@ -395,11 +418,10 @@ function App() {
           <div className="grid gap-6 md:grid-cols-2">
             {certificates.map((certificate) => (
               <Card key={certificate.title} className="p-4">
-                <a
-                  href={certificate.image}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group block rounded-card focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                <button
+                  type="button"
+                  onClick={() => setSelectedCertificate(certificate)}
+                  className="group block w-full rounded-card text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                   aria-label={`${home.certificates.viewCertificate}: ${certificate.title}`}
                 >
                   <img
@@ -415,11 +437,47 @@ function App() {
                   <span className="mt-2 block text-sm text-text-secondary">
                     {home.certificates.viewCertificate}
                   </span>
-                </a>
+                </button>
               </Card>
             ))}
           </div>
         </section>
+
+        {/* модальное окно */}
+
+        {selectedCertificate && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+            onClick={() => setSelectedCertificate(null)}
+          >
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-label={selectedCertificate.title}
+              className="relative max-h-[90vh] w-full max-w-4xl rounded-card border border-border bg-surface p-4 shadow-2xl sm:p-6"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedCertificate(null)}
+                className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-2xl text-white transition-colors hover:bg-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                aria-label={
+                  currentLanguage === 'ru'
+                    ? 'Закрыть сертификат'
+                    : 'Close certificate'
+                }
+              >
+                ×
+              </button>
+
+              <img
+                src={selectedCertificate.image}
+                alt={selectedCertificate.alt}
+                className="max-h-[calc(90vh-3rem)] w-full object-contain"
+              />
+            </div>
+          </div>
+        )}
 
         {/* Contact */}
         <section id="contact" className="scroll-mt-8 py-16 sm:py-24">
