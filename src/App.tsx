@@ -76,6 +76,32 @@ function App() {
     }
   }, [selectedCertificate])
 
+  //наблюдение за секциями
+  useEffect(() => {
+    const elements = document.querySelectorAll<HTMLElement>('[data-reveal]')
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'))
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15 },
+    )
+
+    elements.forEach((element) => observer.observe(element))
+
+    return () => observer.disconnect()
+  }, [])
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
       behavior: 'smooth',
@@ -181,7 +207,7 @@ function App() {
         {/* Hero */}
         <section
           id="home"
-          className="grid scroll-mt-8 items-center gap-10 py-16 sm:py-20 md:grid-cols-[1.3fr_0.7fr] md:gap-14 md:py-28"
+          className="grid scroll-mt-8 items-center gap-10 py-16 sm:py-20 md:grid-cols-[1.3fr_0.7fr] md:gap-14 md:py-28 animate-fade-in-up"
         >
           <div>
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
@@ -234,7 +260,11 @@ function App() {
         </section>
 
         {/* Projects */}
-        <section id="projects" className="scroll-mt-8 py-16 sm:py-20">
+        <section
+          id="projects"
+          data-reveal
+          className="scroll-mt-8 py-16 sm:py-20 reveal-on-scroll"
+        >
           <div className="mb-8 max-w-2xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
               01 / Portfolio
