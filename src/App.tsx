@@ -347,7 +347,10 @@ function App() {
         </section>
 
         {/* Tech stack */}
-        <section id="stack" className="scroll-mt-8 py-16 sm:py-20">
+        <section
+          data-reveal
+          className="scroll-mt-8 py-16 sm:py-20 reveal-on-scroll"
+        >
           <div className="mb-8">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
               02 / Skills
@@ -382,7 +385,11 @@ function App() {
         </section>
 
         {/* About */}
-        <section id="about" className="scroll-mt-8 py-16 sm:py-20">
+        <section
+          id="about"
+          data-reveal
+          className="scroll-mt-8 py-16 sm:py-20 reveal-on-scroll"
+        >
           <div className="mb-8">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
               03 / About
@@ -434,7 +441,11 @@ function App() {
         </section>
 
         {/* Journey */}
-        <section id="journey" className="scroll-mt-8 py-16 sm:py-20">
+        <section
+          id="journey"
+          data-reveal
+          className="scroll-mt-8 py-16 sm:py-20 reveal-on-scroll"
+        >
           <div className="mb-8">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
               04 / Journey
@@ -458,7 +469,11 @@ function App() {
         </section>
 
         {/* Certificates */}
-        <section id="certificates" className="scroll-mt-8 py-16 sm:py-20">
+        <section
+          id="certificates"
+          data-reveal
+          className="scroll-mt-8 py-16 sm:py-20 reveal-on-scroll"
+        >
           <div className="mb-8">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
               05 / Certificates
@@ -532,7 +547,7 @@ function App() {
         )}
 
         {/* Contact */}
-        <section id="contact" className="scroll-mt-8 py-16 sm:py-24">
+        <section id="contact" className="scroll-mt-8 py-16 sm:py-20">
           <Card className="border-accent/30 bg-surface p-6 sm:p-10">
             <div className="mt-8">
               <p className="mb-4 break-all text-sm text-text-secondary">
