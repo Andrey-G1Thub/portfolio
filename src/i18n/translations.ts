@@ -220,7 +220,7 @@ export const translations: Record<Language, Translations> = {
 
     home: {
       hero: {
-        role: 'Junior Frontend / Fullstack Developer',
+        role: 'Frontend / Fullstack Developer',
         title: 'Andrey Rukshenas',
         description:
           'I build web applications with React and TypeScript, explore fullstack development, and use AI tools to analyze tasks and explore solutions.',
