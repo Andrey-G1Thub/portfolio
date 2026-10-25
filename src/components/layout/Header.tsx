@@ -9,6 +9,7 @@ function Header() {
   const navigate = useNavigate()
   const { lang } = useParams()
   const location = useLocation()
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -132,17 +133,17 @@ function Header() {
                 : 'Переключить на русский'
             }
           >
-            <span className="sm:hidden">
+            <span className="min-[870px]:hidden">
               {currentLanguage === 'ru' ? 'EN' : 'RU'}
             </span>
-            <span className="hidden sm:inline">
+            <span className="hidden min-[870px]:inline">
               {currentLanguage === 'ru'
                 ? t.header.switchToEnglish
                 : t.header.switchToRussian}
             </span>
           </button>
 
-          {/* бургер для мобилки */}
+          {/* Кнопка мобильного меню */}
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
@@ -159,7 +160,6 @@ function Header() {
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
           >
-            {' '}
             {isMobileMenuOpen ? (
               <X size={20} aria-hidden="true" />
             ) : (
@@ -167,6 +167,7 @@ function Header() {
             )}
           </button>
 
+          {/* Кнопка «Связаться» на широких экранах */}
           <div className="hidden md:block">
             <Button
               className="shrink-0 px-4 py-2"
@@ -177,7 +178,6 @@ function Header() {
           </div>
         </div>
       </div>
-
       {/* мобильное меню */}
       {isMobileMenuOpen && (
         <nav
