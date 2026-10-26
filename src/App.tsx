@@ -35,8 +35,14 @@ function App() {
   const t = translations[currentLanguage]
   const home = t.home
 
+  // для переключения языка в <html lang="en">
+  useEffect(() => {
+    document.documentElement.lang = currentLanguage
+  }, [currentLanguage])
+
   const [selectedCertificate, setSelectedCertificate] =
     useState<Certificate | null>(null)
+
   const [emailCopyStatus, setEmailCopyStatus] = useState<
     'idle' | 'success' | 'error'
   >('idle')
