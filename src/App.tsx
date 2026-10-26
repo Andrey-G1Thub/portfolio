@@ -1,30 +1,20 @@
-import {
-  ArrowUpRight,
-  Code2,
-  CodeXml,
-  Copy,
-  Database,
-  Layers3,
-  Mail,
-  Wrench,
-} from 'lucide-react'
+import { Code2, Database, Layers3, Wrench } from 'lucide-react'
 import { useParams } from 'react-router-dom'
 
 import { useEffect, useState } from 'react'
 
 import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
-import Card from '@/components/ui/Card'
 import { translations } from '@/i18n/translations'
 
 import AboutSection from '@/components/sections/AboutSection'
+import CertificatesSection from '@/components/sections/CertificatesSection'
+import ContactSection from '@/components/sections/ContactSection'
 import HeroSection from '@/components/sections/HeroSection'
 import JourneySection from '@/components/sections/JourneySection'
 import ProjectsSection from '@/components/sections/ProjectsSection'
 import StackSection from '@/components/sections/StackSection'
 import portrait from '../avatar/avatar-optimized.jpg'
-import frontendCertificate from '../avatar/sertificats/djunior-frontend.png'
-import greenApiCertificate from '../avatar/sertificats/green-api.png'
 
 function App() {
   const { lang } = useParams()
@@ -36,9 +26,6 @@ function App() {
   useEffect(() => {
     document.documentElement.lang = currentLanguage
   }, [currentLanguage])
-
-  const [selectedCertificate, setSelectedCertificate] =
-    useState<Certificate | null>(null)
 
   const [emailCopyStatus, setEmailCopyStatus] = useState<
     'idle' | 'success' | 'error'
@@ -63,23 +50,23 @@ function App() {
     return () => window.clearTimeout(timeoutId)
   }, [emailCopyStatus])
 
-  useEffect(() => {
-    if (!selectedCertificate) return
+  //   if (!selectedCertificate) return
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setSelectedCertificate(null)
-      }
-    }
+  //   const handleKeyDown = (event: KeyboardEvent) => {
+  //     if (event.key === 'Escape') {
+  //       setSelectedCertificate(null)
+  //     }
+  //   }
 
-    window.addEventListener('keydown', handleKeyDown)
+  //   window.addEventListener('keydown', handleKeyDown)
 
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [selectedCertificate])
+  //   return () => {
+  //     window.removeEventListener('keydown', handleKeyDown)
+  //   }
+  // }, [selectedCertificate])
 
   //наблюдение за секциями
+
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>('[data-reveal]')
 
@@ -151,27 +138,6 @@ function App() {
     },
   ]
 
-  const certificates = [
-    {
-      title: home.certificates.frontend,
-      image: frontendCertificate,
-      alt:
-        currentLanguage === 'ru'
-          ? 'Сертификат курса Frontend-разработчика'
-          : 'Frontend Developer course certificate',
-    },
-    {
-      title: home.certificates.greenApi,
-      image: greenApiCertificate,
-      alt:
-        currentLanguage === 'ru'
-          ? 'Сертификат Green API'
-          : 'Green API certificate',
-    },
-  ]
-
-  type Certificate = (typeof certificates)[number]
-
   return (
     <div className="min-h-screen bg-page text-content">
       <Header />
@@ -179,7 +145,7 @@ function App() {
       <main className="mx-auto max-w-content px-4 sm:px-6">
         {/* <HeroSection/> */}
         <HeroSection
-          home={home}
+          hero={home.hero}
           currentLanguage={currentLanguage}
           portrait={portrait}
           onScrollToSection={scrollToSection}
@@ -204,64 +170,17 @@ function App() {
         {/* Journey */}
         <JourneySection journey={home.journey} />
 
+        {/* Certificates */}
+        <CertificatesSection
+          certificatesText={home.certificates}
+          currentLanguage={currentLanguage}
+        />
         {/* Contact */}
-        {/* <section id="contact" className="scroll-mt-8 py-16 sm:py-20">
-          <Card className="border-accent/30 bg-surface p-6 sm:p-10">
-            <div className="mt-8">
-              <p className="mb-4 break-all text-sm text-text-secondary">
-                andreyrukshenas@gmail.com
-              </p>
-
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="mailto:andreyrukshenas@gmail.com"
-                  className="inline-flex items-center gap-2 rounded-button bg-accent px-5 py-3 text-sm font-medium text-black transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                >
-                  <Mail size={18} aria-hidden="true" />
-                  {home.contact.email}
-                </a>
-
-                <button
-                  type="button"
-                  onClick={copyEmail}
-                  className="inline-flex items-center gap-2 rounded-button border border-border bg-surface px-5 py-3 text-sm font-medium text-content transition-colors hover:bg-surface-secondary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                >
-                  <Copy size={18} aria-hidden="true" />
-                  {home.contact.copyEmail}
-                </button>
-
-                <a
-                  href="https://github.com/Andrey-G1Thub"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-button border border-border bg-surface px-5 py-3 text-sm font-medium text-content transition-colors hover:bg-surface-secondary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                >
-                  <CodeXml size={18} aria-hidden="true" />
-                  {home.contact.github}
-                  <ArrowUpRight size={16} aria-hidden="true" />
-                </a>
-              </div>
-
-              <p
-                className="mt-3 min-h-5 text-sm"
-                aria-live="polite"
-                role="status"
-              >
-                {emailCopyStatus === 'success' && (
-                  <span className="text-accent">
-                    {home.contact.emailCopied}
-                  </span>
-                )}
-
-                {emailCopyStatus === 'error' && (
-                  <span className="text-red-400">
-                    {home.contact.emailCopyError}
-                  </span>
-                )}
-              </p>
-            </div>
-          </Card>
-        </section> */}
+        <ContactSection
+          emailCopyStatus={emailCopyStatus}
+          onCopyEmail={copyEmail}
+          contact={home.contact}
+        />
       </main>
 
       <Footer />
