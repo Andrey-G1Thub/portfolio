@@ -1,4 +1,3 @@
-import { Link, useParams } from 'react-router-dom'
 import {
   ArrowLeft,
   ArrowRight,
@@ -6,8 +5,8 @@ import {
   CodeXml,
   ExternalLink,
 } from 'lucide-react'
+import { Link, useParams } from 'react-router-dom'
 
-// import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
 import TechBadge from '../components/ui/TechBadge'
 import { translations } from '../i18n/translations'
@@ -17,9 +16,9 @@ import bookezImage from '../../avatar/book-ez/book-ez.png'
 import bookezImage2 from '../../avatar/book-ez/book-ez2.png'
 import bookezImage3 from '../../avatar/book-ez/book-ez3.png'
 import bookezImage4 from '../../avatar/book-ez/book-ez4.png'
+import contextMenuImage from '../../avatar/context-api.png'
 import hakatonImage from '../../avatar/hakaton1.png'
 import hakatonImage2 from '../../avatar/hakaton2.png'
-import contextMenuImage from '../../avatar/context-api.png'
 import Header from '../components/layout/Header'
 
 const projectImages: Record<ProjectId, string[]> = {

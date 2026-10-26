@@ -1,4 +1,3 @@
-import { Code2, Database, Layers3, Wrench } from 'lucide-react'
 import { useParams } from 'react-router-dom'
 
 import { useEffect, useState } from 'react'
@@ -14,6 +13,7 @@ import HeroSection from '@/components/sections/HeroSection'
 import JourneySection from '@/components/sections/JourneySection'
 import ProjectsSection from '@/components/sections/ProjectsSection'
 import StackSection from '@/components/sections/StackSection'
+import { getTechnologyGroups } from '@/data/technologyGroups'
 import portrait from '../avatar/avatar-optimized.jpg'
 
 function App() {
@@ -50,23 +50,6 @@ function App() {
     return () => window.clearTimeout(timeoutId)
   }, [emailCopyStatus])
 
-  //   if (!selectedCertificate) return
-
-  //   const handleKeyDown = (event: KeyboardEvent) => {
-  //     if (event.key === 'Escape') {
-  //       setSelectedCertificate(null)
-  //     }
-  //   }
-
-  //   window.addEventListener('keydown', handleKeyDown)
-
-  //   return () => {
-  //     window.removeEventListener('keydown', handleKeyDown)
-  //   }
-  // }, [selectedCertificate])
-
-  //наблюдение за секциями
-
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>('[data-reveal]')
 
@@ -98,52 +81,13 @@ function App() {
       block: 'start',
     })
   }
-
-  const technologyGroups = [
-    {
-      title: home.stack.groups.frontend,
-      icon: Code2,
-      technologies: [
-        'HTML',
-        'CSS',
-        'JavaScript',
-        'TypeScript',
-        'React',
-        'Vite',
-        'Tailwind CSS',
-      ],
-    },
-    {
-      title: home.stack.groups.state,
-      icon: Layers3,
-      technologies: ['Redux', 'Context API'],
-    },
-    {
-      title: home.stack.groups.backend,
-      icon: Database,
-      technologies: [
-        'Node.js',
-        'Express',
-        'REST API',
-        'MongoDB',
-        'Mongoose',
-        'JWT',
-        'Docker',
-      ],
-    },
-    {
-      title: home.stack.groups.tools,
-      icon: Wrench,
-      technologies: ['Git', 'GitHub', 'VS Code', 'Cursor', 'ChatGPT', 'Gemini'],
-    },
-  ]
+  const technologyGroups = getTechnologyGroups(home.stack.groups)
 
   return (
     <div className="min-h-screen bg-page text-content">
       <Header />
 
       <main className="mx-auto max-w-content px-4 sm:px-6">
-        {/* <HeroSection/> */}
         <HeroSection
           hero={home.hero}
           currentLanguage={currentLanguage}
@@ -151,31 +95,26 @@ function App() {
           onScrollToSection={scrollToSection}
         />
 
-        {/* Projects */}
         <ProjectsSection
           currentLanguage={currentLanguage}
           homeProjects={home.projects}
           projectTranslations={t.projects}
         />
 
-        {/* Tech stack */}
         <StackSection
           title={home.stack.title}
           technologyGroups={technologyGroups}
         />
 
-        {/* About */}
         <AboutSection about={home.about} currentLanguage={currentLanguage} />
 
-        {/* Journey */}
         <JourneySection journey={home.journey} />
 
-        {/* Certificates */}
         <CertificatesSection
           certificatesText={home.certificates}
           currentLanguage={currentLanguage}
         />
-        {/* Contact */}
+
         <ContactSection
           emailCopyStatus={emailCopyStatus}
           onCopyEmail={copyEmail}
