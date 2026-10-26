@@ -1,31 +1,28 @@
-import { useParams, Link as RouterLink } from 'react-router-dom'
 import {
-  ArrowDownRight,
   ArrowUpRight,
-  CodeXml,
-  Mail,
-  Code2,
-  Layers3,
-  Database,
-  Wrench,
-  GraduationCap,
   BriefcaseBusiness,
+  Code2,
+  CodeXml,
   Copy,
+  Database,
+  GraduationCap,
+  Layers3,
+  Mail,
+  Wrench,
 } from 'lucide-react'
+import { useParams } from 'react-router-dom'
 
 import { useEffect, useState } from 'react'
 
-import Button from '@/components/ui/Button'
-import TechBadge from '@/components/ui/TechBadge'
-import Card from '@/components/ui/Card'
-import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import Header from '@/components/layout/Header'
+import Card from '@/components/ui/Card'
+import TechBadge from '@/components/ui/TechBadge'
 import { translations } from '@/i18n/translations'
 
+import HeroSection from '@/components/sections/HeroSection'
+import ProjectsSection from '@/components/sections/ProjectsSection'
 import portrait from '../avatar/avatar-optimized.jpg'
-import bookezImage from '../avatar/book-ez/book-ez.png'
-import hakatonImage from '../avatar/hakaton1.png'
-import contextMenuImage from '../avatar/context-api.png'
 import frontendCertificate from '../avatar/sertificats/djunior-frontend.png'
 import greenApiCertificate from '../avatar/sertificats/green-api.png'
 
@@ -115,36 +112,6 @@ function App() {
     })
   }
 
-  const projects = [
-    {
-      id: 'bookez',
-      image: bookezImage,
-      technologies: [
-        'React',
-        'TypeScript',
-        'Node.js',
-        'Express',
-        'MongoDB',
-        'Docker',
-      ],
-      repository: 'https://github.com/Andrey-G1Thub/bookez-hotel-booking',
-    },
-    {
-      id: 'hakaton-react',
-      image: hakatonImage,
-      technologies: ['React', 'JavaScript', 'CSS'],
-      repository: 'https://github.com/Andrey-G1Thub/HaKatonReact',
-      demo: 'https://andrey-g1thub.github.io/HaKatonReact/',
-    },
-    {
-      id: 'context-menu',
-      image: contextMenuImage,
-      technologies: ['JavaScript', 'HTML', 'CSS'],
-      repository: 'https://github.com/Artemsushko/context-menu',
-      demo: 'https://artemsushko.github.io/context-menu/',
-    },
-  ] as const
-
   const technologyGroups = [
     {
       title: home.stack.groups.frontend,
@@ -210,147 +177,20 @@ function App() {
       <Header />
 
       <main className="mx-auto max-w-content px-4 sm:px-6">
-        {/* Hero */}
-        <section
-          id="home"
-          className="grid scroll-mt-8 items-center gap-10 py-16 sm:py-20 md:grid-cols-[1.3fr_0.7fr] md:gap-14 md:py-28 animate-fade-in-up"
-        >
-          <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              {home.hero.role}
-            </p>
-
-            <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              {home.hero.title}
-            </h1>
-
-            <p className="mt-6 max-w-2xl text-base leading-8 text-text-secondary sm:text-lg">
-              {home.hero.description}
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button onClick={() => scrollToSection('projects')}>
-                {home.hero.viewProjects}
-                <ArrowDownRight size={18} aria-hidden="true" />
-              </Button>
-
-              <Button
-                variant="secondary"
-                onClick={() => scrollToSection('contact')}
-              >
-                {home.hero.contact}
-                <ArrowUpRight size={18} aria-hidden="true" />
-              </Button>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <TechBadge>React</TechBadge>
-              <TechBadge>TypeScript</TechBadge>
-              <TechBadge>JavaScript</TechBadge>
-            </div>
-          </div>
-
-          <div className="mx-auto w-full max-w-sm md:max-w-none">
-            <div className="overflow-hidden rounded-card border border-border bg-surface p-2">
-              <img
-                src={portrait}
-                alt={
-                  currentLanguage === 'ru'
-                    ? 'Андрей Рукшенас'
-                    : 'Andrey Rukshenas'
-                }
-                className="aspect-[4/5] w-full rounded-card object-cover object-center"
-              />
-            </div>
-          </div>
-        </section>
+        {/* <HeroSection/> */}
+        <HeroSection
+          home={home}
+          currentLanguage={currentLanguage}
+          portrait={portrait}
+          onScrollToSection={scrollToSection}
+        />
 
         {/* Projects */}
-        <section
-          id="projects"
-          data-reveal
-          className="scroll-mt-8 py-16 sm:py-20 reveal-on-scroll"
-        >
-          <div className="mb-8 max-w-2xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              01 / Portfolio
-            </p>
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              {home.projects.title}
-            </h2>
-            <p className="mt-4 leading-7 text-text-secondary">
-              {home.projects.description}
-            </p>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-3">
-            {projects.map((project) => {
-              const projectText = t.projects[project.id]
-
-              return (
-                <Card
-                  key={project.id}
-                  className="flex h-full flex-col overflow-hidden p-0"
-                >
-                  <img
-                    src={project.image}
-                    alt={`${projectText.title} preview`}
-                    className="aspect-[16/10] w-full border-b border-border object-cover object-top"
-                    loading="lazy"
-                  />
-
-                  <div className="flex flex-1 flex-col p-5">
-                    <h3 className="text-xl font-semibold">
-                      {projectText.title}
-                    </h3>
-
-                    <p className="mt-3 flex-1 leading-7 text-text-secondary">
-                      {projectText.description}
-                    </p>
-
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {project.technologies.map((technology) => (
-                        <TechBadge key={technology}>{technology}</TechBadge>
-                      ))}
-                    </div>
-
-                    <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
-                      <RouterLink
-                        to={`/${currentLanguage}/projects/${project.id}`}
-                        className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                      >
-                        {home.projects.viewProject}
-                        <ArrowUpRight size={16} aria-hidden="true" />
-                      </RouterLink>
-
-                      <a
-                        href={project.repository}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-content focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                      >
-                        <CodeXml size={16} aria-hidden="true" />
-                        {home.projects.repository}
-                      </a>
-
-                      {'demo' in project && project.demo && (
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-content focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                        >
-                          {home.projects.demo}
-                          <ArrowUpRight size={16} aria-hidden="true" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </Card>
-              )
-            })}
-          </div>
-        </section>
+        <ProjectsSection
+          currentLanguage={currentLanguage}
+          homeProjects={home.projects}
+          projectTranslations={t.projects}
+        />
 
         {/* Tech stack */}
         <section
