@@ -15,12 +15,12 @@ import {
 
 import { useEffect, useState } from 'react'
 
-import Button from './components/ui/Button'
-import TechBadge from './components/ui/TechBadge'
-import Card from './components/ui/Card'
-import Header from './components/layout/Header'
-import Footer from './components/layout/Footer'
-import { translations } from './i18n/translations'
+import Button from '@/components/ui/Button'
+import TechBadge from '@/components/ui/TechBadge'
+import Card from '@/components/ui/Card'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+import { translations } from '@/i18n/translations'
 
 import portrait from '../avatar/avatar-optimized.jpg'
 import bookezImage from '../avatar/book-ez/book-ez.png'
