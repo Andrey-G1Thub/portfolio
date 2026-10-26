@@ -1,11 +1,9 @@
 import {
   ArrowUpRight,
-  BriefcaseBusiness,
   Code2,
   CodeXml,
   Copy,
   Database,
-  GraduationCap,
   Layers3,
   Mail,
   Wrench,
@@ -17,11 +15,12 @@ import { useEffect, useState } from 'react'
 import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import Card from '@/components/ui/Card'
-import TechBadge from '@/components/ui/TechBadge'
 import { translations } from '@/i18n/translations'
 
+import AboutSection from '@/components/sections/AboutSection'
 import HeroSection from '@/components/sections/HeroSection'
 import ProjectsSection from '@/components/sections/ProjectsSection'
+import StackSection from '@/components/sections/StackSection'
 import portrait from '../avatar/avatar-optimized.jpg'
 import frontendCertificate from '../avatar/sertificats/djunior-frontend.png'
 import greenApiCertificate from '../avatar/sertificats/green-api.png'
@@ -193,98 +192,13 @@ function App() {
         />
 
         {/* Tech stack */}
-        <section
-          data-reveal
-          className="scroll-mt-8 py-16 sm:py-20 reveal-on-scroll"
-        >
-          <div className="mb-8">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              02 / Skills
-            </p>
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              {home.stack.title}
-            </h2>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {technologyGroups.map((group) => {
-              const Icon = group.icon
-
-              return (
-                <Card key={group.title}>
-                  <div className="flex items-center gap-3">
-                    <div className="rounded-lg border border-border bg-surface-secondary p-3 text-accent">
-                      <Icon size={22} aria-hidden="true" />
-                    </div>
-                    <h3 className="text-lg font-semibold">{group.title}</h3>
-                  </div>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {group.technologies.map((technology) => (
-                      <TechBadge key={technology}>{technology}</TechBadge>
-                    ))}
-                  </div>
-                </Card>
-              )
-            })}
-          </div>
-        </section>
+        <StackSection
+          title={home.stack.title}
+          technologyGroups={technologyGroups}
+        />
 
         {/* About */}
-        <section
-          id="about"
-          data-reveal
-          className="scroll-mt-8 py-16 sm:py-20 reveal-on-scroll"
-        >
-          <div className="mb-8">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              03 / About
-            </p>
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              {home.about.title}
-            </h2>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-            <Card>
-              <p className="leading-8 text-text-secondary">
-                {home.about.description}
-              </p>
-
-              <div className="mt-6 flex items-center gap-3">
-                <GraduationCap
-                  className="shrink-0 text-accent"
-                  size={22}
-                  aria-hidden="true"
-                />
-                <h3 className="font-semibold">{home.about.education}</h3>
-              </div>
-
-              <p className="mt-3 leading-7 text-text-secondary">
-                {home.about.educationDescription}
-              </p>
-            </Card>
-
-            <Card>
-              <div className="flex items-center gap-3">
-                <BriefcaseBusiness
-                  className="shrink-0 text-accent"
-                  size={22}
-                  aria-hidden="true"
-                />
-                <h3 className="font-semibold">
-                  {currentLanguage === 'ru'
-                    ? 'Подход к разработке'
-                    : 'Development approach'}
-                </h3>
-              </div>
-
-              <p className="mt-4 leading-8 text-text-secondary">
-                {home.about.independentWork}
-              </p>
-            </Card>
-          </div>
-        </section>
+        <AboutSection about={home.about} currentLanguage={currentLanguage} />
 
         {/* Journey */}
         <section
