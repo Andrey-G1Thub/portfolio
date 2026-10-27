@@ -1,10 +1,7 @@
-import { useParams } from 'react-router-dom'
-
 import { useEffect, useState } from 'react'
 
 import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
-import { translations } from '@/i18n/translations'
 
 import AboutSection from '@/components/sections/AboutSection'
 import CertificatesSection from '@/components/sections/CertificatesSection'
@@ -14,12 +11,11 @@ import JourneySection from '@/components/sections/JourneySection'
 import ProjectsSection from '@/components/sections/ProjectsSection'
 import StackSection from '@/components/sections/StackSection'
 import { getTechnologyGroups } from '@/data/technologyGroups'
+import { useCurrentLanguage } from '@/i18n/useCurrentLanguage'
 import portrait from '../avatar/avatar-optimized.jpg'
 
 function App() {
-  const { lang } = useParams()
-  const currentLanguage = lang === 'en' ? 'en' : 'ru'
-  const t = translations[currentLanguage]
+  const { currentLanguage, t } = useCurrentLanguage()
   const home = t.home
 
   // для переключения языка в <html lang="en">

@@ -1,13 +1,10 @@
+import { useCurrentLanguage } from '@/i18n/useCurrentLanguage'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Link from '../ui/Link'
-import { useNavigate, useParams, useLocation } from 'react-router-dom'
-import { translations } from '../../i18n/translations'
 
 function Footer() {
-  const { lang } = useParams()
   const navigate = useNavigate()
-  const currentLanguage = lang === 'en' ? 'en' : 'ru'
-  const t = translations[currentLanguage]
-
+  const { currentLanguage, t } = useCurrentLanguage()
   const location = useLocation()
 
   const navigateToSection = (sectionId: string) => {

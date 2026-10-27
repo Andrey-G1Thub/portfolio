@@ -6,11 +6,10 @@ import {
   useParams,
 } from 'react-router-dom'
 import App from './App'
-import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
-import { translations } from './i18n/translations'
-import type { Language } from './i18n/types'
+import Header from './components/layout/Header'
 
+import { useCurrentLanguage } from '@/i18n/useCurrentLanguage'
 import ProjectPage from './pages/ProjectPage'
 
 function LanguageGuard() {
@@ -24,9 +23,7 @@ function LanguageGuard() {
 }
 
 function NotFoundPage() {
-  const { lang } = useParams()
-  const language: Language = lang === 'en' ? 'en' : 'ru'
-  const t = translations[language]
+  const { currentLanguage, t } = useCurrentLanguage()
 
   return (
     <div className="min-h-screen bg-page p-4 text-content">
@@ -36,7 +33,7 @@ function NotFoundPage() {
         <h1 className="text-3xl font-bold">{t.notFound.title}</h1>
 
         <Link
-          to={`/${language}`}
+          to={`/${currentLanguage}`}
           className="mt-4 inline-flex text-accent hover:brightness-110"
         >
           {t.notFound.backToHome}

@@ -1,13 +1,12 @@
-import { useNavigate, useParams, useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useCurrentLanguage } from '@/i18n/useCurrentLanguage'
 import { Menu, X } from 'lucide-react'
-import Link from '../ui/Link'
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Button from '../ui/Button'
-import { translations } from '../../i18n/translations'
+import Link from '../ui/Link'
 
 function Header() {
   const navigate = useNavigate()
-  const { lang } = useParams()
   const location = useLocation()
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -28,8 +27,7 @@ function Header() {
     }
   }, [isMobileMenuOpen])
 
-  const currentLanguage = lang === 'en' ? 'en' : 'ru'
-  const t = translations[currentLanguage]
+  const { currentLanguage, t } = useCurrentLanguage()
   const nextLanguage = currentLanguage === 'ru' ? 'en' : 'ru'
 
   useEffect(() => {
@@ -83,7 +81,7 @@ function Header() {
         >
           ANDREY RUKSHENAS
         </Link>
-
+        {/* навигация */}
         <nav
           className="hidden items-center gap-6 md:flex"
           aria-label={t.navigation.ariaLabel}
@@ -121,7 +119,7 @@ function Header() {
             {t.navigation.contact}
           </Link>
         </nav>
-
+        {/* переключение языка */}
         <div className="flex shrink-0 items-center gap-3">
           <button
             type="button"

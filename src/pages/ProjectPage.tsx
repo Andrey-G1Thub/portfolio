@@ -5,14 +5,14 @@ import {
   CodeXml,
   ExternalLink,
 } from 'lucide-react'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Footer from '../components/layout/Footer'
 import TechBadge from '../components/ui/TechBadge'
-import { translations } from '../i18n/translations'
-import type { Language, ProjectId } from '../i18n/types'
+import type { ProjectId } from '../i18n/types'
 
 import { projects } from '@/data/projects'
+import { useCurrentLanguage } from '@/i18n/useCurrentLanguage'
 import bookezImage from '../../avatar/book-ez/book-ez.png'
 import bookezImage2 from '../../avatar/book-ez/book-ez2.png'
 import bookezImage3 from '../../avatar/book-ez/book-ez3.png'
@@ -29,9 +29,7 @@ const projectImages: Record<ProjectId, string[]> = {
 }
 
 function ProjectPage({ projectId }: { projectId: ProjectId }) {
-  const { lang } = useParams()
-  const language: Language = lang === 'en' ? 'en' : 'ru'
-  const t = translations[language]
+  const { currentLanguage, t } = useCurrentLanguage()
   const project = t.projects[projectId]
 
   const projectData = projects.find((item) => item.id === projectId)
@@ -48,7 +46,7 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
 
       <main className="mx-auto max-w-content px-4 py-10 sm:px-6 sm:py-14">
         <Link
-          to={`/${language}`}
+          to={`/${currentLanguage}`}
           state={{ scrollToSection: 'projects' }}
           className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors hover:text-content"
         >
@@ -186,12 +184,14 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
         {/* навигация на следующий проект */}
         <nav
           aria-label={
-            language === 'ru' ? 'Навигация по проектам' : 'Project navigation'
+            currentLanguage === 'ru'
+              ? 'Навигация по проектам'
+              : 'Project navigation'
           }
           className="flex flex-col gap-4 border-t border-border py-10 sm:flex-row sm:items-center sm:justify-between"
         >
           <Link
-            to={`/${language}`}
+            to={`/${currentLanguage}`}
             state={{ scrollToSection: 'projects' }}
             className="text-sm text-text-secondary transition-colors hover:text-content"
           >
@@ -199,12 +199,12 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
           </Link>
 
           <Link
-            to={`/${language}/projects/${projectData.next}`}
+            to={`/${currentLanguage}/projects/${projectData.next}`}
             className="inline-flex items-center gap-3 rounded-card border border-border p-4 transition-colors hover:bg-surface-secondary"
           >
             <span>
               <span className="block text-xs text-text-secondary">
-                {language === 'ru' ? 'Следующий проект' : 'Next project'}
+                {currentLanguage === 'ru' ? 'Следующий проект' : 'Next project'}
               </span>
               <span className="mt-1 block font-semibold">
                 {nextProject.title}
