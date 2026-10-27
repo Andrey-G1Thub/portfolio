@@ -12,6 +12,7 @@ import TechBadge from '../components/ui/TechBadge'
 import { translations } from '../i18n/translations'
 import type { Language, ProjectId } from '../i18n/types'
 
+import { projects } from '@/data/projects'
 import bookezImage from '../../avatar/book-ez/book-ez.png'
 import bookezImage2 from '../../avatar/book-ez/book-ez2.png'
 import bookezImage3 from '../../avatar/book-ez/book-ez3.png'
@@ -27,34 +28,19 @@ const projectImages: Record<ProjectId, string[]> = {
   'context-menu': [contextMenuImage],
 }
 
-const projectLinks: Record<
-  ProjectId,
-  { repository: string; demo?: string; next: ProjectId }
-> = {
-  bookez: {
-    repository: 'https://github.com/Andrey-G1Thub/bookez-hotel-booking',
-    next: 'hakaton-react',
-  },
-  'hakaton-react': {
-    repository: 'https://github.com/Andrey-G1Thub/HaKatonReact',
-    demo: 'https://andrey-g1thub.github.io/HaKatonReact/',
-    next: 'context-menu',
-  },
-  'context-menu': {
-    repository: 'https://github.com/Artemsushko/context-menu',
-    demo: 'https://artemsushko.github.io/context-menu/',
-    next: 'bookez',
-  },
-}
-
 function ProjectPage({ projectId }: { projectId: ProjectId }) {
   const { lang } = useParams()
   const language: Language = lang === 'en' ? 'en' : 'ru'
   const t = translations[language]
   const project = t.projects[projectId]
-  const links = projectLinks[projectId]
+
+  const projectData = projects.find((item) => item.id === projectId)
+
+  if (!projectData) {
+    return null
+  }
   const images = projectImages[projectId]
-  const nextProject = t.projects[links.next]
+  const nextProject = t.projects[projectData.next]
 
   return (
     <div className="min-h-screen bg-page text-content">
@@ -85,9 +71,9 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
-            {links.demo && (
+            {'demo' in projectData && projectData.demo && (
               <a
-                href={links.demo}
+                href={projectData.demo}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-button bg-accent px-5 py-3 text-sm font-medium text-black transition-colors hover:brightness-110"
@@ -98,7 +84,7 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
             )}
 
             <a
-              href={links.repository}
+              href={projectData.repository}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-button border border-border px-5 py-3 text-sm font-medium transition-colors hover:bg-surface-secondary"
@@ -109,13 +95,14 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
             </a>
           </div>
 
-          {!links.demo && (
+          {!projectData.demo && (
             <p className="mt-4 text-sm text-text-secondary">
               {project.demoStatus}
             </p>
           )}
         </section>
 
+        {/* скриншоты */}
         <section className="pb-12 sm:pb-16">
           <h2 className="mb-5 text-2xl font-semibold">
             {project.gallery.title}
@@ -148,6 +135,7 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
           </div>
         </section>
 
+        {/* описание */}
         <section className="grid gap-10 border-t border-border py-12 sm:py-16 md:grid-cols-2">
           <div>
             <h2 className="text-2xl font-semibold">{project.title}</h2>
@@ -172,6 +160,7 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
           </div>
         </section>
 
+        {/* мой вклад, технологии */}
         <section className="grid gap-10 border-t border-border py-12 sm:py-16 md:grid-cols-2">
           <div>
             <h2 className="text-2xl font-semibold">
@@ -194,6 +183,7 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
           </div>
         </section>
 
+        {/* навигация на следующий проект */}
         <nav
           aria-label={
             language === 'ru' ? 'Навигация по проектам' : 'Project navigation'
@@ -209,7 +199,7 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
           </Link>
 
           <Link
-            to={`/${language}/projects/${links.next}`}
+            to={`/${language}/projects/${projectData.next}`}
             className="inline-flex items-center gap-3 rounded-card border border-border p-4 transition-colors hover:bg-surface-secondary"
           >
             <span>
