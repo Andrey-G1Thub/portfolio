@@ -29,7 +29,7 @@ export function getTechnologyGroups(
     {
       title: groups.state,
       icon: Layers3,
-      technologies: ['Redux', 'Context API'],
+      technologies: ['Redux', 'Redux-Thunk', 'Context API'],
     },
     {
       title: groups.backend,
@@ -41,13 +41,24 @@ export function getTechnologyGroups(
         'MongoDB',
         'Mongoose',
         'JWT',
+        'bcrypt',
         'Docker',
+        'Docker Compose',
+        'Docker Compose',
       ],
     },
     {
       title: groups.tools,
       icon: Wrench,
-      technologies: ['Git', 'GitHub', 'VS Code', 'Cursor', 'ChatGPT', 'Gemini'],
+      technologies: [
+        'Git',
+        'GitHub',
+        'VS Code',
+        'Cursor',
+        'ChatGPT',
+        'Gemini',
+        'Postman',
+      ],
     },
   ]
 }

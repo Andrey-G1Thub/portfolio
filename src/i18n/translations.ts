@@ -21,10 +21,10 @@ export const translations: Record<Language, Translations> = {
 
     home: {
       hero: {
-        role: 'Frontend / Fullstack Developer',
+        role: 'Junior Fullstack Developer',
         title: 'Андрей Рукшенас',
         description:
-          'Создаю веб-приложения на React и TypeScript, изучаю fullstack-разработку и использую AI-инструменты для анализа задач и поиска решений.',
+          'Разрабатываю веб-приложения на React и TypeScript, создаю серверную часть на Node.js и Express. Работаю с REST API, базами данных и развёртыванием приложений. Использую современные инструменты разработки, включая AI, и постоянно развиваю технические навыки.',
         viewProjects: 'Посмотреть проекты',
         contact: 'Связаться со мной',
       },
@@ -41,12 +41,12 @@ export const translations: Record<Language, Translations> = {
       about: {
         title: 'Обо мне',
         description:
-          'У меня техническое и экономическое образование, а также инженерный бэкграунд. В 2025 году я начал профессиональный путь в веб-разработке и прошёл обучение на Frontend-разработчика в Result University.',
+          'Мой путь в разработке начался с интереса к созданию веб-приложений и стремления развиваться в IT. У меня высшее техническое и экономическое образование, а также инженерный опыт, который сформировал  системный подход к задачам, внимание к деталям и ответственность за результат.',
         education: 'Образование',
         educationDescription:
-          'Завершил обучение на Frontend-разработчика в Result University в апреле 2026 года. Ранее получил высшее техническое и экономическое образование.',
+          'В 2025–2026 годах я прошёл профессиональную переподготовку по программе «Фронтенд-разработчик» в Result University и получил диплом и сертификат. В ходе обучения и работы над проектами получил практический опыт разработки frontend- и backend-частей приложений, работы с базами данных, тестированием и развёртыванием.',
         independentWork:
-          'Мой основной фокус — React, TypeScript и современные веб-интерфейсы. Мне также интересны серверная логика, базы данных и развёртывание приложений. Использую документацию, практические эксперименты и AI-инструменты для анализа задач, обучения и поиска решений. Ценю системный подход, самостоятельность и ответственность за результат.',
+          'Мой основной стек — React, TypeScript, Node.js и Express. В учебных и самостоятельных проектах я реализовывал клиентские интерфейсы, серверную логикику и REST API, работал с базами данных и развёртыванием приложений. В дипломном проекте BookEz прошёл полный цикл разработки fullstack-приложения — от реализации функциональности до настройки Docker и развёртывания на VPS. В разработке использую техническую документацию и AI-инструменты для анализа задач, изучения новых решений, проверки кода и отладки. Для меня важно понимать логику реализации, проверять результат и постепенно повышать самостоятельность. Продолжаю развивать навыки fullstack-разработки, совершенствовать качество кода и расширять портфолио новыми проектами.',
       },
 
       stack: {
@@ -62,15 +62,16 @@ export const translations: Record<Language, Translations> = {
       journey: {
         title: 'Мой путь',
         education:
-          'Завершил курс профессиональной переподготовки по Frontend-разработке',
+          'Завершил профессиональную переподготовку по Frontend-разработке',
         educationPeriod: '19 мая 2025 — 15 апреля 2026',
         current:
           'Продолжаю практиковаться, развивать портфолио и углублять знания в Frontend и Fullstack-разработке.',
       },
 
       certificates: {
-        title: 'Сертификаты',
-        viewCertificate: 'Посмотреть сертификат',
+        title: 'Образование и сертификаты',
+        viewCertificate: 'Открыть документ',
+        diploma: 'Диплом о профессиональной переподготовке',
         frontend: 'Frontend-разработчик — Result University',
         greenApi: 'Разработка и интеграция чат-ботов на базе GREEN-API',
       },
@@ -96,33 +97,38 @@ export const translations: Record<Language, Translations> = {
     projects: {
       bookez: {
         title: 'BookEz',
-        description:
-          'Дипломный Fullstack-проект — приложение для бронирования отелей с поиском, фильтрацией, JWT-авторизацией и системой ролей.',
+        description: 'BookEz — Fullstack-сервис бронирования отелей',
         overview:
-          'Веб-приложение для поиска и бронирования отелей. Проект объединяет клиентскую часть, серверную логику и работу с базой данных.',
+          'Дипломный проект, разработанный в рамках обучения в Result University. За четыре недели активной разработки создал fullstack-приложение на React и TypeScript с серверной частью на Node.js и Express.',
         features: {
           title: 'Основные возможности',
           items: [
-            'Поиск и фильтрация отелей',
-            'Регистрация и авторизация с JWT',
-            'Разграничение доступа по ролям',
-            'Серверная обработка запросов и работа с MongoDB',
+            'Поиск и фильтрация отелей с учётом доступности номеров на выбранные даты.',
+            'Регистрация и авторизация с использованием JWT и bcrypt.',
+            'Ролевая модель доступа: Admin, Manager и User.',
+            'Управление отелями, номерами и бронированиями.',
+            'Отзывы и загрузка изображений.',
+            'REST API и хранение данных в MongoDB с использованием Mongoose.',
           ],
         },
         contribution: {
           title: 'Мой вклад',
           description:
-            'Дипломный проект, над которым я работал в рамках обучения Fullstack-разработке. Реализовывал и изучал взаимодействие клиентской и серверной частей приложения.',
+            'Самостоятельно реализовал клиентскую и серверную части, связал frontend с REST API, разработал модели данных и логику доступа по ролям. Реализовал проверку пересечения дат при бронировании, загрузку изображений через Multer и интерфейсы управления. Развёртывание: Подготовил multi-stage Docker-сборку, объединил приложение и MongoDB с помощью Docker Compose и настроил развёртывание на VPS под Ubuntu. Настроил хранение данных и загруженных изображений через volumes.',
         },
         technologies: {
           title: 'Технологии',
           items: [
             'React',
             'TypeScript',
+            'Redux-Thunk',
             'Node.js',
             'Express',
             'MongoDB',
+            'Mongoose',
             'Docker',
+            'Docker Compose',
+            'Tailwind CSS',
           ],
         },
         gallery: {
@@ -137,9 +143,9 @@ export const translations: Record<Language, Translations> = {
       'hakaton-react': {
         title: 'HaKatonReact',
         description:
-          'Проект React-хакатона с карточками сотрудников, лайками и фильтрацией данных.',
+          'Проект на React с карточками сотрудников, лайками и фильтрацией данных.',
         overview:
-          'Практический командный проект, созданный в рамках задания на React. Интерфейс позволяет работать с карточками и фильтровать отображаемые данные.',
+          'Учебный проект, созданный в рамках React-хакатона за 24 часа.',
         features: {
           title: 'Основные возможности',
           items: [
@@ -152,7 +158,7 @@ export const translations: Record<Language, Translations> = {
         contribution: {
           title: 'Мой вклад',
           description:
-            'С помощью AI-инструментов я реализовал компоненты карточек, логику лайков и фильтрацию в соответствии с требованиями задания.',
+            'Самостоятельно реализовал проект по требованиям задания, используя AI-инструменты в процессе разработки. Проверял работу компонентов и взаимодействие функций, дорабатывал решение в соответствии с требованиями.',
         },
         technologies: {
           title: 'Технологии',
@@ -168,10 +174,9 @@ export const translations: Record<Language, Translations> = {
 
       'context-menu': {
         title: 'Context Menu',
-        description:
-          'Командный JavaScript-проект с контекстным меню и интерактивными элементами.',
+        description: 'Context Menu — интерактивное контекстное меню',
         overview:
-          'Учебный командный проект, посвящённый созданию интерактивных элементов интерфейса на JavaScript.',
+          'Командный учебный проект на JavaScript, разработанный в рамках курса.',
         features: {
           title: 'Основные возможности',
           items: [
@@ -182,11 +187,11 @@ export const translations: Record<Language, Translations> = {
         contribution: {
           title: 'Мой вклад',
           description:
-            'Участвовал в командной разработке учебного проекта. Работа помогла получить практический опыт взаимодействия с общим кодом и Git.',
+            'Реализовал таймер, разработал подсчёт кликов пользователя за определённый промежуток времени, участвовал в командной разработке и объединении изменений в общий проект с использованием Git.',
         },
         technologies: {
           title: 'Технологии',
-          items: ['JavaScript', 'HTML', 'CSS'],
+          items: ['JavaScript', 'HTML', 'CSS', 'Git'],
         },
         gallery: {
           title: 'Скриншоты проекта',
@@ -223,10 +228,10 @@ export const translations: Record<Language, Translations> = {
 
     home: {
       hero: {
-        role: 'Frontend / Fullstack Developer',
+        role: 'Junior Fullstack Developer',
         title: 'Andrey Rukshenas',
         description:
-          'I build web applications with React and TypeScript, explore fullstack development, and use AI tools to analyze tasks and explore solutions.',
+          'I develop web applications using React and TypeScript, with server-side functionality built using Node.js and Express. I work with REST APIs, databases, and application deployment. I use modern development tools, including AI, and continuously expand my technical skills.',
         viewProjects: 'View projects',
         contact: 'Get in touch',
       },
@@ -243,12 +248,12 @@ export const translations: Record<Language, Translations> = {
       about: {
         title: 'About me',
         description:
-          'I have backgrounds in engineering and economics. In 2025, I began my professional journey in web development and completed Frontend Developer training at Result University.',
+          'My path in development began with an interest in creating web applications and a desire to develop in IT. I have higher technical and economic education, as well as engineering experience, which helped to form a systematic approach to tasks, attention to detail and responsibility for the result.',
         education: 'Education',
         educationDescription:
-          'Completed Frontend Developer training at Result University in April 2026. Previously earned higher education qualifications in engineering and economics.',
+          'In 2025–2026, I completed professional retraining under the Frontend Developer program at Result University and received a diploma and a certificate. Through my studies and project work, I gained practical experience in frontend and backend development, working with databases, testing, and application deployment.',
         independentWork:
-          'My main focus is React, TypeScript, and modern web interfaces. I am also interested in server-side logic, databases, and deployment. I use documentation, hands-on experimentation, and AI tools to analyze tasks, learn, and explore solutions. I value a systematic approach, independence, and responsibility for results.',
+          'My main technology stack includes React, TypeScript, Node.js, and Express. In educational and personal projects, I have developed user interfaces, implemented server-side logic and REST APIs, worked with databases, and deployed applications. For my graduation project, BookEz, I worked through the full development cycle of a fullstack application, from implementing its functionality to configuring Docker and deploying it to a VPS. I use technical documentation and AI tools to analyze tasks, explore unfamiliar solutions, review code, and debug issues. I aim not only to deliver working software but also to understand implementation decisions, verify results, and become increasingly independent in my work. I continue to strengthen my fullstack development skills, improve code quality, and expand my portfolio with new projects.',
       },
 
       stack: {
@@ -264,7 +269,7 @@ export const translations: Record<Language, Translations> = {
       journey: {
         title: 'My Journey',
         education:
-          'Completed a professional retraining course in Frontend development',
+          'Completed a professional retraining  in Frontend Development',
 
         educationPeriod: 'May 19, 2025 — April 15, 2026',
         current:
@@ -272,8 +277,9 @@ export const translations: Record<Language, Translations> = {
       },
 
       certificates: {
-        title: 'Certificates',
-        viewCertificate: 'View certificate',
+        title: 'Education & Certificates',
+        viewCertificate: 'View document',
+        diploma: 'Professional Retraining Diploma',
         frontend: 'Frontend Developer — Result University',
         greenApi: 'Chatbot Development and Integration with GREEN-API',
       },
@@ -281,7 +287,7 @@ export const translations: Record<Language, Translations> = {
       contact: {
         title: "Let's Connect",
         description:
-          'Open to job opportunities, professional connections, and new challenges in web development.',
+          'Open to job offers, professional networking, and new challenges in web development',
         email: 'Send an email',
         github: 'My GitHub',
         copyEmail: 'Copy email',
@@ -300,33 +306,38 @@ export const translations: Record<Language, Translations> = {
     projects: {
       bookez: {
         title: 'BookEz',
-        description:
-          'A fullstack diploma project — a hotel booking application with search, filtering, JWT authentication, and role-based access.',
+        description: 'BookEz — Fullstack-hotel booking service',
         overview:
-          'A web application for searching and booking hotels. The project combines a client-side interface, server-side logic, and database operations.',
+          'A graduation project developed as part of a study at Result University. In four weeks of active development, I created a fullstack application in React and TypeScript with a server part on Node.js and Express.',
         features: {
           title: 'Key Features',
           items: [
-            'Hotel search and filtering',
-            'Registration and JWT authentication',
-            'Role-based access control',
-            'Server-side request handling and MongoDB integration',
+            'Search and filter hotels based on room availability on selected dates.',
+            'Registration and authorization using JWT and bcrypt',
+            'Role model of access: Admin, Manager and User',
+            'Management of hotels, rooms and bookings',
+            'Reviews and image uploads',
+            'REST API and data storage in MongoDB using Mongoose.',
           ],
         },
         contribution: {
           title: 'My Contribution',
           description:
-            'A diploma project developed during my Fullstack training. I worked on and studied the interaction between the client-side and server-side parts of the application.',
+            'Independently developed the client and server sides of the application, integrated the frontend with the REST API, and implemented data models and role-based access control. Implemented booking date-overlap validation, image uploads using Multer, and management interfaces. Deployment: Prepared a multi-stage Docker build, configured the application and MongoDB using Docker Compose, and deployed the application to an Ubuntu VPS. Configured persistent storage for database data and uploaded images using Docker volumes.',
         },
         technologies: {
           title: 'Technologies',
           items: [
             'React',
             'TypeScript',
+            'Redux-Thunk',
             'Node.js',
             'Express',
             'MongoDB',
+            'Mongoose',
             'Docker',
+            'Docker Compose',
+            'Tailwind CSS',
           ],
         },
         gallery: {
@@ -341,9 +352,9 @@ export const translations: Record<Language, Translations> = {
       'hakaton-react': {
         title: 'HaKatonReact',
         description:
-          'A React hackathon project featuring employee cards, likes, and data filtering.',
+          'A React project with  employee cards, likes, and data filtering.',
         overview:
-          'A team project built as part of a React assignment. The interface allows users to interact with cards and filter displayed data.',
+          'A training project created as part of the React hackathon in 24 hours.',
         features: {
           title: 'Key Features',
           items: [
@@ -356,7 +367,7 @@ export const translations: Record<Language, Translations> = {
         contribution: {
           title: 'My Contribution',
           description:
-            'With the help of AI tools, I implemented the card components, like functionality, and filtering according to the assignment requirements.',
+            'Independently implemented the project according to the requirements of the assignment, using AI tools during the development process. I checked the operation of components and the interaction of functions, and finalized the solution in accordance with the requirements.',
         },
         technologies: {
           title: 'Technologies',
@@ -372,10 +383,9 @@ export const translations: Record<Language, Translations> = {
 
       'context-menu': {
         title: 'Context Menu',
-        description:
-          'A collaborative JavaScript project featuring a custom context menu and interactive elements.',
+        description: 'Context Menu — interactive context menu',
         overview:
-          'A team learning project focused on building interactive interface elements with JavaScript.',
+          'A JavaScript team learning project developed as part of the course.',
         features: {
           title: 'Key Features',
           items: ['Custom context menu', 'Interactive UI elements'],
@@ -383,11 +393,11 @@ export const translations: Record<Language, Translations> = {
         contribution: {
           title: 'My Contribution',
           description:
-            'Contributed to a team learning project and gained practical experience working with a shared codebase and Git. ',
+            'Implemented a timer and click counting over a specified time interval. Also participated in team development and merging changes using Git',
         },
         technologies: {
           title: 'Technologies',
-          items: ['JavaScript', 'HTML', 'CSS'],
+          items: ['JavaScript', 'HTML', 'CSS', 'Git'],
         },
         gallery: {
           title: 'Project Screenshots',

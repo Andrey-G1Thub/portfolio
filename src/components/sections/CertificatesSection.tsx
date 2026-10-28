@@ -2,6 +2,7 @@ import Card from '@/components/ui/Card'
 import type { Language, Translations } from '@/i18n/types'
 import { ArrowUpRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import frontendDiploma from '../../../avatar/sertificats/diplom-frontend.jpg'
 import frontendCertificate from '../../../avatar/sertificats/djunior-frontend.png'
 import greenApiCertificate from '../../../avatar/sertificats/green-api.png'
 
@@ -15,6 +16,14 @@ function CertificatesSection({
   currentLanguage,
 }: CertificatesSectionProps) {
   const certificates = [
+    {
+      title: certificatesText.diploma,
+      image: frontendDiploma,
+      alt:
+        currentLanguage === 'ru'
+          ? 'Диплом о профессиональной переподготовке по программе «Фронтенд-разработчик»'
+          : 'Professional retraining diploma in Frontend Development',
+    },
     {
       title: certificatesText.frontend,
       image: frontendCertificate,
@@ -62,7 +71,7 @@ function CertificatesSection({
       >
         <div className="mb-8">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-            05 / Certificates
+            05 / Education & Certificates
           </p>
           <h2 className="text-3xl font-bold sm:text-4xl">
             {certificatesText.title}

@@ -65,6 +65,7 @@ export interface Translations {
     certificates: {
       title: string
       viewCertificate: string
+       diploma: string
       frontend: string
       greenApi: string
     }
