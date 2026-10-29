@@ -2,9 +2,9 @@
 
 Персональное портфолио, демонстрирующее мои навыки веб-разработки, практические проекты и технический опыт. Основной стек — React и TypeScript на frontend, Node.js и Express на backend.
 
-Сайт: https://andrey-g1thub.github.io/resume/
+Сайт: https://andrey-g1thub.github.io/portfolio/
 
-Репозиторий: https://github.com/Andrey-G1Thub/resume
+Репозиторий: https://github.com/Andrey-G1Thub/portfolio
 
 ## О проекте
 
