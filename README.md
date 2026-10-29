@@ -1,6 +1,16 @@
-# Andrey Rukshenas — Portfolio
+# Andrey Rukshenas — Портфолио Fullstack-разработчика
 
-Personal portfolio website built with React, TypeScript, and Vite.
+Персональное портфолио, демонстрирующее мои навыки веб-разработки, практические проекты и технический опыт. Основной стек — React и TypeScript на frontend, Node.js и Express на backend.
+
+Сайт: https://andrey-g1thub.github.io/resume/
+
+Репозиторий: https://github.com/Andrey-G1Thub/resume
+
+## О проекте
+
+Адаптивное персональное портфолио, созданное для презентации моих проектов, используемых технологий, профессионального опыта и контактной информации.
+
+Интерфейс поддерживает русский и английский языки и выполнен в тёмном премиальном стиле.
 
 ## Technologies
 
@@ -10,48 +20,50 @@ Personal portfolio website built with React, TypeScript, and Vite.
 - React Router
 - Tailwind CSS
 - Lucide React
+- GitHub Actions
+- GitHub Pages
 
-## Getting Started
+## Запуск проекта
 
-### Requirements
+### Требования
 
 - Node.js
 - npm
 
-### Install dependencies
+### Установка зависимостей
 
 ```bash
 npm install
 ```
 
-### Start development server
+### Запуск сервера разработки
 
 ```bash
 npm run dev
 ```
 
-### Check code
+### Проверка кода
 
 ```bash
 npm run lint
 ```
 
-### Build for production
+### Сборка проекта для production
 
 ```bash
 npm run build
 ```
 
-### Preview production build
+### Предварительный просмотр production-сборки
 
 ```bash
 npm run preview
 ```
 
-## Deployment
+## Публикация проекта
 
-The website is configured for GitHub Pages.
+Сайт опубликован на GitHub Pages с использованием GitHub Actions.
 
-Repository: https://github.com/Andrey-G1Thub/resume
+Каждый push в ветку main автоматически запускает workflow, описанный в файле .github/workflows/deploy.yml. Он устанавливает зависимости, собирает проект и публикует содержимое директории dist.
 
-Website: https://andrey-g1thub.github.io/resume/
+Workflow также можно запустить вручную во вкладке Actions репозитория на GitHub.
