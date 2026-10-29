@@ -1,12 +1,6 @@
 import Card from '@/components/ui/Card'
 import TechBadge from '@/components/ui/TechBadge'
-import type { LucideIcon } from 'lucide-react'
-
-type TechnologyGroup = {
-  title: string
-  icon: LucideIcon
-  technologies: string[]
-}
+import type { TechnologyGroup } from '@/i18n/types'
 
 type StackSectionProps = {
   title: string

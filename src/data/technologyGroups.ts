@@ -1,11 +1,5 @@
-import type { Translations } from '@/i18n/types'
-import { Code2, Database, Layers3, Wrench, type LucideIcon } from 'lucide-react'
-
-type TechnologyGroup = {
-  title: string
-  icon: LucideIcon
-  technologies: string[]
-}
+import type { TechnologyGroup, Translations } from '@/i18n/types'
+import { Code2, Database, Layers3, Wrench } from 'lucide-react'
 
 type StackGroupTranslations = Translations['home']['stack']['groups']
 
@@ -43,7 +37,6 @@ export function getTechnologyGroups(
         'JWT',
         'bcrypt',
         'Docker',
-        'Docker Compose',
         'Docker Compose',
       ],
     },

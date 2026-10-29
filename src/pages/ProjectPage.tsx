@@ -174,7 +174,7 @@ function ProjectPage({ projectId }: { projectId: ProjectId }) {
               {project.technologies.title}
             </h2>
             <div className="mt-5 flex flex-wrap gap-2">
-              {project.technologies.items.map((technology) => (
+              {projectData.technologies.map((technology) => (
                 <TechBadge key={technology}>{technology}</TechBadge>
               ))}
             </div>

@@ -35,7 +35,7 @@ export const projects = [
   {
     id: 'hakaton-react',
     image: hakatonImage,
-    technologies: ['React', 'JavaScript', 'CSS'],
+    technologies: ['React', 'JavaScript', 'CSS', 'Git'],
     repository: 'https://github.com/Andrey-G1Thub/HaKatonReact',
     demo: 'https://andrey-g1thub.github.io/HaKatonReact/',
     next: 'context-menu',

@@ -1,3 +1,11 @@
+import type { LucideIcon } from 'lucide-react'
+
+export type TechnologyGroup = {
+  title: string
+  icon: LucideIcon
+  technologies: string[]
+}
+
 export type Language = 'ru' | 'en'
 
 export type ProjectId = 'bookez' | 'hakaton-react' | 'context-menu'
@@ -65,7 +73,7 @@ export interface Translations {
     certificates: {
       title: string
       viewCertificate: string
-       diploma: string
+      diploma: string
       frontend: string
       greenApi: string
     }
@@ -103,7 +111,7 @@ export interface Translations {
       }
       technologies: {
         title: string
-        items: string[]
+        // items: string[]
       }
       gallery: {
         title: string

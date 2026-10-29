@@ -118,18 +118,18 @@ export const translations: Record<Language, Translations> = {
         },
         technologies: {
           title: 'Технологии',
-          items: [
-            'React',
-            'TypeScript',
-            'Redux-Thunk',
-            'Node.js',
-            'Express',
-            'MongoDB',
-            'Mongoose',
-            'Docker',
-            'Docker Compose',
-            'Tailwind CSS',
-          ],
+          // items: [
+          //   // 'React',
+          //   // 'TypeScript',
+          //   // 'Redux-Thunk',
+          //   // 'Node.js',
+          //   // 'Express',
+          //   // 'MongoDB',
+          //   // 'Mongoose',
+          //   // 'Docker',
+          //   // 'Docker Compose',
+          //   // 'Tailwind CSS',
+          // ],
         },
         gallery: {
           title: 'Скриншоты проекта',
@@ -162,7 +162,9 @@ export const translations: Record<Language, Translations> = {
         },
         technologies: {
           title: 'Технологии',
-          items: ['React', 'JavaScript', 'CSS'],
+          // items: [
+          //   // 'React', 'JavaScript', 'CSS', 'Git'
+          // ],
         },
         gallery: {
           title: 'Скриншоты проекта',
@@ -191,7 +193,9 @@ export const translations: Record<Language, Translations> = {
         },
         technologies: {
           title: 'Технологии',
-          items: ['JavaScript', 'HTML', 'CSS', 'Git'],
+          // items: [
+          //   // 'JavaScript', 'HTML', 'CSS', 'Git'
+          // ],
         },
         gallery: {
           title: 'Скриншоты проекта',
@@ -327,18 +331,18 @@ export const translations: Record<Language, Translations> = {
         },
         technologies: {
           title: 'Technologies',
-          items: [
-            'React',
-            'TypeScript',
-            'Redux-Thunk',
-            'Node.js',
-            'Express',
-            'MongoDB',
-            'Mongoose',
-            'Docker',
-            'Docker Compose',
-            'Tailwind CSS',
-          ],
+          // items: [
+          //   'React',
+          //   'TypeScript',
+          //   'Redux-Thunk',
+          //   'Node.js',
+          //   'Express',
+          //   'MongoDB',
+          //   'Mongoose',
+          //   'Docker',
+          //   'Docker Compose',
+          //   'Tailwind CSS',
+          // ],
         },
         gallery: {
           title: 'Project Screenshots',
@@ -371,7 +375,7 @@ export const translations: Record<Language, Translations> = {
         },
         technologies: {
           title: 'Technologies',
-          items: ['React', 'JavaScript', 'CSS'],
+          // items: ['React', 'JavaScript', 'CSS'],
         },
         gallery: {
           title: 'Project Screenshots',
@@ -397,7 +401,7 @@ export const translations: Record<Language, Translations> = {
         },
         technologies: {
           title: 'Technologies',
-          items: ['JavaScript', 'HTML', 'CSS', 'Git'],
+          // items: ['JavaScript', 'HTML', 'CSS', 'Git'],
         },
         gallery: {
           title: 'Project Screenshots',
