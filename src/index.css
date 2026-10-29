@@ -1,0 +1,151 @@
+@import 'tailwindcss';
+
+:root {
+  /* Typography */
+  font-family: Arial, Helvetica, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Typography scale */
+  --font-size-h1: 48px;
+  --font-size-h2: 32px;
+  --font-size-h3: 20px;
+  --font-size-body: 16px;
+  --font-size-small: 14px;
+
+  --line-height-h1: 1.1;
+  --line-height-h2: 1.2;
+  --line-height-h3: 1.4;
+  --line-height-body: 1.6;
+  --line-height-small: 1.5;
+
+  /* Dark Premium colors */
+  --color-bg: #101113;
+  --color-surface: #191a1d;
+  --color-surface-secondary: #242528;
+  --color-text: #f4f4f1;
+  --color-text-secondary: #a2a4a8;
+  --color-accent: #c5f467;
+  --color-border: #343539;
+
+  /* Layout */
+  --container-padding: 24px;
+  --section-spacing: 80px;
+  --grid-gap: 24px;
+
+  /* Border radius */
+  --radius-card: 16px;
+  --radius-button: 10px;
+
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+@theme {
+  /* Colors */
+  --color-page: var(--color-bg);
+  --color-content: var(--color-text);
+  --color-surface: var(--color-surface);
+  --color-surface-secondary: var(--color-surface-secondary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-accent: var(--color-accent);
+  --color-border: var(--color-border);
+
+  /* Container */
+  --container-content: 1200px;
+
+  /* Spacing */
+  --spacing-section: var(--section-spacing);
+  --spacing-grid: var(--grid-gap);
+
+  /* Border radius */
+  --radius-card: var(--radius-card);
+  --radius-button: var(--radius-button);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --container-padding: 16px;
+    --section-spacing: 48px;
+    --grid-gap: 16px;
+    --font-size-h1: 34px;
+    --font-size-h2: 26px;
+  }
+}
+
+/* Smooth transitions */
+a,
+button {
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Subtle entrance animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 600ms ease-out both;
+}
+
+/* Reveal sections when they enter the viewport */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.reveal-on-scroll.is-visible {
+  animation: fade-in-up 600ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
