@@ -1,4 +1,5 @@
 import { useCurrentLanguage } from '@/i18n/useCurrentLanguage'
+import { getCurrentYear } from '@/utils/getCurrentYear'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Link from '../ui/Link'
 
@@ -16,12 +17,12 @@ function Footer() {
       })
     }
   }
-
+  const currentYear = getCurrentYear()
   return (
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-content flex-col gap-4 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <p className="text-sm text-text-secondary">
-          © {new Date().getFullYear()} Andrey Rukshenas
+          © {currentYear} Andrey Rukshenas
         </p>
 
         <div className="flex flex-wrap items-center gap-5">

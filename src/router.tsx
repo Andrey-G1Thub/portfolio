@@ -1,49 +1,11 @@
-import {
-  createHashRouter,
-  Link,
-  Navigate,
-  Outlet,
-  useParams,
-} from 'react-router-dom'
+import { createHashRouter, Navigate } from 'react-router-dom'
 import App from './App'
-import Footer from './components/layout/Footer'
-import Header from './components/layout/Header'
 
-import { useCurrentLanguage } from '@/i18n/useCurrentLanguage'
+import LanguageGuard from '@/components/layout/LanguageGuard'
+import NotFoundPage from '@/components/layout/NotFoundPage'
 import ProjectPage from './pages/ProjectPage'
 
-function LanguageGuard() {
-  const { lang } = useParams()
 
-  if (lang !== 'ru' && lang !== 'en') {
-    return <Navigate to="/ru" replace />
-  }
-
-  return <Outlet />
-}
-
-function NotFoundPage() {
-  const { currentLanguage, t } = useCurrentLanguage()
-
-  return (
-    <div className="min-h-screen bg-page p-4 text-content">
-      <Header />
-
-      <main className="mx-auto max-w-content p-4">
-        <h1 className="text-3xl font-bold">{t.notFound.title}</h1>
-
-        <Link
-          to={`/${currentLanguage}`}
-          className="mt-4 inline-flex text-accent hover:brightness-110"
-        >
-          {t.notFound.backToHome}
-        </Link>
-      </main>
-
-      <Footer />
-    </div>
-  )
-}
 
 export const router = createHashRouter([
   {
