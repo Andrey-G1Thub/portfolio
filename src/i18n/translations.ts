@@ -22,7 +22,7 @@ export const translations: Record<Language, Translations> = {
     home: {
       hero: {
         role: 'Fullstack Developer',
-        title: 'Андрей Рукшенас',
+        title: 'Андрей Рукшенас — Fullstack Developer',
         description:
           'Разрабатываю веб-приложения на React и TypeScript, создаю серверную часть на Node.js и Express. Работаю с REST API, базами данных и развёртыванием приложений. Использую современные инструменты разработки, включая AI, и постоянно развиваю технические навыки.',
         viewProjects: 'Посмотреть проекты',
@@ -215,7 +215,7 @@ export const translations: Record<Language, Translations> = {
     home: {
       hero: {
         role: 'Fullstack Developer',
-        title: 'Andrey Rukshenas',
+        title: 'Andrey Rukshenas — Fullstack Developer',
         description:
           'I develop web applications using React and TypeScript, with server-side functionality built using Node.js and Express. I work with REST APIs, databases, and application deployment. I use modern development tools, including AI, and continuously expand my technical skills.',
         viewProjects: 'View projects',
